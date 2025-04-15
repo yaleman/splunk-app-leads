@@ -56,13 +56,17 @@ def auth(username: str, password: str) -> Optional[str]:
         # print(response.json())
         if response.status_code == 200:
             print("Auth successful", file=sys.stderr)
-            return response.json().get("data", {}).get("token")
+            token: Optional[str] = response.json().get("data", {}).get("token", None)
+            return token
+
         else:
             print("Auth failed", file=sys.stderr)
             return None
     except Exception as e:
         print(f"Error parsing JSON: {e}")
         print("Response status code:", response.status_code)
+    finally:
+        return None
 
 
 def check_env_vars() -> None:
