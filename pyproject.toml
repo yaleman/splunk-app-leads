@@ -1,0 +1,7 @@
+[project]
+name = "splunk-app-leads"
+version = "0.1.0"
+description = "Grab the leads for your app from SplunkBase"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["click>=8.1.8", "requests>=2.32.3"]
